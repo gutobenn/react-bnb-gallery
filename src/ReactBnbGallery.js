@@ -114,6 +114,18 @@ class ReactBnbGallery extends Component {
     };
   }
 
+  getModalStyle() {
+    const {
+      zIndex,
+      modalStyle
+    } = this.props;
+
+    return {
+      zIndex,
+      ...modalStyle
+    };
+  }
+
   close() {
     const { onClose } = this.props;
     onClose();
@@ -158,9 +170,7 @@ class ReactBnbGallery extends Component {
     // modal overlay customization styles
     const galleryModalOverlayStyles = this.getModalOverlayStyles();
 
-    const modalStyle = {
-      zIndex,
-    };
+    const modalStyle = this.getModalStyle();
 
     return (
       <Portal>
